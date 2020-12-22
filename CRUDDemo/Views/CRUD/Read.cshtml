@@ -1,0 +1,52 @@
+﻿@product IEnumerable<CRUDDemo.Product>
+
+    @{
+        ViewBag.Title = "Read";
+    }
+
+    <h2>Read</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(product => product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(product => product.Section)
+            </th>
+            <th>
+                @Html.DisplayNameFor(product => product.Productname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(product => product.Categoryname)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in product)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(productItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(productItem => item.Section)
+                </td>
+                <td>
+                    @Html.DisplayFor(productItem => item.Productname)
+                </td>
+                <td>
+                    @Html.DisplayFor(productItem => item.Categoryname)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "Update", new { Productid = item.ProductNo }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductNo }) |
+                    @Html.ActionLink("Delete", "Delete", new { Productid = item.ProductNo })
+                </td>
+            </tr>
+        }
+
+    </table>
